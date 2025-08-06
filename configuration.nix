@@ -44,6 +44,9 @@ users.groups.admins = {};
     yc = {
       isNormalUser = true;
       extraGroups = [ "wheel" "docker" "admin"];
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDMsiJCy7X5GMZjU0un/ztfGkDtgosNca+LIzSkWOQR3"
+      ]
     };
     dom = {
       isNormalUser = true;
