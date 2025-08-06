@@ -15,7 +15,7 @@
   boot.loader.grub.device = "/dev/sda";
 
   # Set hostname
-  networking.hostName = "core";
+  networking.hostName = "pw-01-core";
 
   # Set your time zone
   time.timeZone = "America/New_York";
