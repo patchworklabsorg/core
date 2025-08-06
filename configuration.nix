@@ -15,7 +15,7 @@
   boot.loader.grub.device = "/dev/sda";
 
   # Set hostname
-  networking.hostName = "nixos-vm";
+  networking.hostName = "core";
 
   # Set your time zone
   time.timeZone = "America/New_York";
