@@ -78,6 +78,7 @@ systemd.tmpfiles.rules = [ "d /opt/dots 0775 root admins - -" ];
   services.qemuGuest.enable = true;
   services.openssh.enable = true;
   virtualisation.docker.enable = true;
+  services.tailscale.enable = true;
 
   # Programs
   programs.zsh.enable = true;
