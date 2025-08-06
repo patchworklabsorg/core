@@ -49,6 +49,11 @@ users.groups.admins = {};
       isNormalUser = true;
       extraGroups = [ "docker" ];
     };
+
+    root.openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDxnv44DTFIO2cIiy4blF/UjJxDY+j8AJo9Wwq25inA2 jasper@jaspermayone.com"
+    ];
+
   };
 
 # Create directory with correct ownership and permissions
