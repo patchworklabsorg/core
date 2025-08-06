@@ -62,7 +62,13 @@ systemd.tmpfiles.rules = [ "d /opt/dots 0775 root admins - -" ];
     git
     htop
     tree
+    gnupg
   ];
+
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 
   # Services
   services.qemuGuest.enable = true;
