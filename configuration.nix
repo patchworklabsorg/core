@@ -31,7 +31,7 @@ users.groups.admins = {};
     jsp = {
       isNormalUser = true;
       shell = pkgs.zsh;
-      extraGroups = [ "wheel" "docker" ];
+      extraGroups = [ "wheel" "docker" "admin" ];
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDxnv44DTFIO2cIiy4blF/UjJxDY+j8AJo9Wwq25inA2 jasper@jaspermayone.com"
       ];
@@ -39,11 +39,11 @@ users.groups.admins = {};
     };
     krn = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "docker" ];
+      extraGroups = [ "wheel" "docker" "admin"];
     };
     yc = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "docker" ];
+      extraGroups = [ "wheel" "docker" "admin"];
     };
     dom = {
       isNormalUser = true;
