@@ -15,7 +15,7 @@
   boot.loader.grub.device = "/dev/sda";
 
   # Set hostname
-  networking.hostName = "nixos-vm";
+  networking.hostName = "pw-01-core";
 
   # Set your time zone
   time.timeZone = "America/New_York";
@@ -47,7 +47,11 @@ users.groups.admins = {};
     };
     yc = {
       isNormalUser = true;
+      shell = pkgs.bash;
       extraGroups = [ "wheel" "docker" "admin"];
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDMsiJCy7X5GMZjU0un/ztfGkDtgosNca+LIzSkWOQR3"
+      ];
     };
     dom = {
       isNormalUser = true;
@@ -83,6 +87,7 @@ systemd.tmpfiles.rules = [ "d /opt/dots 0775 root admins - -" ];
   services.qemuGuest.enable = true;
   services.openssh.enable = true;
   virtualisation.docker.enable = true;
+  services.tailscale.enable = true;
 
   # Programs
   programs.zsh.enable = true;
