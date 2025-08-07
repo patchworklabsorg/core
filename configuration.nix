@@ -33,7 +33,8 @@ users.groups.admins = {};
       shell = pkgs.zsh;
       extraGroups = [ "wheel" "docker" "admin" ];
       openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDxnv44DTFIO2cIiy4blF/UjJxDY+j8AJo9Wwq25inA2 jasper@jaspermayone.com"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHm7lo7umraewipgQu1Pifmoo/V8jYGDHjBTmt+7SOCe jsp@remus"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICLWCzzB2Fj/XiuWo5PnZBcXs0wxUlbAN+c4bX8auv6g jsp@pb-01-core"
       ];
       hashedPassword = "$6$kBN.jtU2kKeD8ORm$F/2Anag4NrcG3rboaCUxE9GqxX2AI3V3BcCfK8xg.WHhjOhFup1ZfAJP8tJj9e4hFIcYhDuMw0qz2WHVaoEY6.";
     };
@@ -55,7 +56,8 @@ users.groups.admins = {};
     };
 
     root.openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDxnv44DTFIO2cIiy4blF/UjJxDY+j8AJo9Wwq25inA2 jasper@jaspermayone.com"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHm7lo7umraewipgQu1Pifmoo/V8jYGDHjBTmt+7SOCe jsp@remus"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICLWCzzB2Fj/XiuWo5PnZBcXs0wxUlbAN+c4bX8auv6g jsp@pb-01-core"
     ];
 
   };
