@@ -78,6 +78,7 @@ systemd.tmpfiles.rules = [ "d /opt/dots 0775 root admins - -" ];
     htop
     tree
     gnupg
+    podman-compose
   ];
 
   programs.gnupg.agent = {
@@ -88,8 +89,18 @@ systemd.tmpfiles.rules = [ "d /opt/dots 0775 root admins - -" ];
   # Services
   services.qemuGuest.enable = true;
   services.openssh.enable = true;
-  virtualisation.docker.enable = true;
+  # virtualisation.docker.enable = true;
   services.tailscale.enable = true;
+
+  # Enable common container config files in /etc/containers
+  virtualisation.containers.enable = true;
+  virtualisation = {
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
 
   # Programs
   programs.zsh.enable = true;
