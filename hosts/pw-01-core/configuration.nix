@@ -26,7 +26,10 @@
 users.groups.admins = {};
 
   # User configuration
+  # Key-only login (#9). With mutableUsers = false and no hashedPassword,
+  # every account is locked for password login, so sudo cannot ask for one.
   users.mutableUsers = false;
+  security.sudo.wheelNeedsPassword = false;
   users.users = {
     jsp = {
       isNormalUser = true;
@@ -36,7 +39,6 @@ users.groups.admins = {};
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHm7lo7umraewipgQu1Pifmoo/V8jYGDHjBTmt+7SOCe jsp@remus"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICLWCzzB2Fj/XiuWo5PnZBcXs0wxUlbAN+c4bX8auv6g jsp@pb-01-core"
       ];
-      hashedPassword = "$6$kBN.jtU2kKeD8ORm$F/2Anag4NrcG3rboaCUxE9GqxX2AI3V3BcCfK8xg.WHhjOhFup1ZfAJP8tJj9e4hFIcYhDuMw0qz2WHVaoEY6.";
     };
     krn = {
       isNormalUser = true;
@@ -88,7 +90,11 @@ systemd.tmpfiles.rules = [ "d /opt/dots 0775 root admins - -" ];
 
   # Services
   services.qemuGuest.enable = true;
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    settings.PasswordAuthentication = false;
+    settings.KbdInteractiveAuthentication = false;
+  };
   # virtualisation.docker.enable = true;
   services.tailscale.enable = true;
 
@@ -108,9 +114,6 @@ systemd.tmpfiles.rules = [ "d /opt/dots 0775 root admins - -" ];
   # Firewall (you may want to open specific ports)
   networking.firewall.enable = true;
   # networking.firewall.allowedTCPPorts = [ 22 ]; # SSH is allowed by default
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  system.copySystemConfiguration = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
